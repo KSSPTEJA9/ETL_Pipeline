@@ -3,14 +3,20 @@ import tweepy
 import json
 from datetime import datetime
 import s3fs
+from dotenv import load_dotenv
+import os
+
+
+
 
 
 def run_twitter_etl():
 
-    access_key="1684771411968077824-1GwqgNFE1s96jAU6cYvg7V32IpWgI4"
-    access_secret="y6yMkPJwCPK4adxdh6VL6iKXIQEged6xojY2JpBCRiNwa"
-    consumer_key="yH3452rrdQV1XXHlsUIz12RXK"
-    consumer_secret="bD11qYdGwhCGrrrK7uFIeDmKQAy3X5a2tiZetHgasRkbDepiLQ"
+    load_dotenv()
+    access_key=os.getenv('access_key')
+    access_secret=os.getenv('access_secret')
+    consumer_key=os.getenv('consumer_key')
+    consumer_secret=os.getenv('consumer_secret')
 
     # Twitter authentication 
     auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
